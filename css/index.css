@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("../fonts/DungeunMo/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "LABDigital";
+  src: url("../fonts/LabDigital/LABDigital.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DungGeunMo";
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img,
+input,
+textarea,
+select {
+  vertical-align: middle;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: normal;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: normal;
+}/*# sourceMappingURL=index.css.map */
