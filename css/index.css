@@ -190,4 +190,7 @@ main section.mainsec .elevator h1 {
 }
 main section.mainsec .elevator img {
   margin: 0 auto;
+}
+main section.aboutme {
+  height: 100vh;
 }/*# sourceMappingURL=index.css.map */
