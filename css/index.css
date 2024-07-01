@@ -31,6 +31,16 @@ select {
   vertical-align: middle;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
 h1 {
   font-size: 30px;
   font-weight: normal;
@@ -193,4 +203,68 @@ main section.mainsec .elevator img {
 }
 main section.aboutme {
   height: 100vh;
+  background-color: aliceblue;
+}
+main section.skill-sec {
+  height: 100vh;
+  background-color: beige;
+}
+main section.portfolio-sec {
+  height: 100vh;
+  background-color: aquamarine;
+}
+main section.contact-sec {
+  height: 100vh;
+  background-color: #f8bd65;
+  overflow: hidden;
+}
+main section.contact-sec .ring {
+  position: relative;
+  margin: 0 auto;
+  width: 60vw;
+  height: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main section.contact-sec .ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #000000;
+  transition: 0.5s;
+}
+main section.contact-sec .ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37%/41% 44% 56% 59%;
+  animation: animate 6s linear infinite;
+}
+main section.contact-sec .ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+}
+main section.contact-sec .ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+main section.contact-sec .ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+main section.contact-sec .ring .myinfo .mymail {
+  position: relative;
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }/*# sourceMappingURL=index.css.map */

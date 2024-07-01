@@ -34,6 +34,16 @@ select {
     vertical-align: middle;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
 h1 {
     font-size: 30px;
     font-weight: normal;
