@@ -32,6 +32,7 @@ select {
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: black;
 }
@@ -90,6 +91,8 @@ header {
 header .logo {
   width: -moz-fit-content;
   width: fit-content;
+  margin-top: 10px;
+  margin-left: -10px;
 }
 header .mobile-menu-box .mobile-menu-bar {
   position: relative;
@@ -145,9 +148,15 @@ header .mobile-menu-box .mobile-menu-bar.active span:after {
   transition-delay: 0s, 0.2s;
 }
 
+/* ---------------side menu----------------------------- */
+main {
+  /* -------------------mainsec------------------------------- */
+  /* -------------------------------------------- */
+  /* -------------------skills----------------------------- */
+}
 main nav.side-menu {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 100;
   margin: 0 auto;
   width: 100%;
@@ -181,6 +190,8 @@ main nav.side-menu .gnb li {
 @media only screen and (min-width: 1024px) {
   main nav.side-menu .gnb li {
     font-size: 27px;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 main section.mainsec {
@@ -189,25 +200,109 @@ main section.mainsec {
 }
 main section.mainsec .elevator {
   margin: 0 auto;
-  padding-top: 20vh;
+  padding-top: 10vh;
   text-align: center;
+}
+@media only screen and (min-width: 1024px) {
+  main section.mainsec .elevator {
+    padding-top: 250px;
+  }
 }
 main section.mainsec .elevator h1 {
   font-family: "LABDigital";
-  font-size: 6vh;
+  font-size: 8vw;
   color: white;
   text-shadow: 0 0 7px #f8bd65, 0 0 10px #f8bd65, 0 0 21px #f8bd65, 0 0 42px #f1422b, 0 0 82px #f8bd65, 0 0 92px #f8bd65, 0 0 102px #f8bd65, 0 0 151px #f1422b;
 }
+@media only screen and (min-width: 1024px) {
+  main section.mainsec .elevator h1 {
+    font-size: 40px;
+  }
+}
 main section.mainsec .elevator img {
   margin: 0 auto;
+  width: 70%;
 }
-main section.aboutme {
+@media only screen and (min-width: 1024px) {
+  main section.mainsec .elevator img {
+    width: 20%;
+  }
+}
+main section.aboutme-sec {
   height: 100vh;
   background-color: aliceblue;
+}
+main section.aboutme-sec .face {
+  width: 300px;
 }
 main section.skill-sec {
   height: 100vh;
   background-color: beige;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec form {
+    position: absolute;
+    margin-top: 200px;
+    margin-left: 400px;
+  }
+}
+main section.skill-sec form .btn {
+  border: 3px solid rgb(0, 0, 0);
+  display: inline-block;
+  padding: 10px;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  transition: background 600ms ease, color 600ms ease;
+}
+main section.skill-sec form input[type=radio].toggle {
+  display: none;
+}
+main section.skill-sec form input[type=radio].toggle + label {
+  cursor: pointer;
+  width: 100%; /* dd */
+  font-size: 20px;
+  line-height: 25px;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec form input[type=radio].toggle + label {
+    width: 110px;
+  }
+}
+main section.skill-sec form input[type=radio].toggle + label:hover {
+  background: none;
+  color: #1a1a1a;
+}
+main section.skill-sec form input[type=radio].toggle + label:after {
+  background: rgb(0, 0, 0);
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: -1;
+}
+main section.skill-sec form input[type=radio].toggle.toggle-left + label {
+  border-right: 0;
+}
+main section.skill-sec form input[type=radio].toggle.toggle-left + label:after {
+  left: 100%;
+}
+main section.skill-sec form input[type=radio].toggle.toggle-right + label {
+  margin-left: -8px;
+}
+main section.skill-sec form input[type=radio].toggle.toggle-right + label:after {
+  left: -100%;
+}
+main section.skill-sec form input[type=radio].toggle:checked + label {
+  cursor: default;
+  color: #fff;
+  z-index: 60;
+  transition: color 200ms;
+}
+main section.skill-sec form input[type=radio].toggle:checked + label:after {
+  left: 0;
 }
 main section.portfolio-sec {
   height: 100vh;
@@ -221,11 +316,19 @@ main section.contact-sec {
 main section.contact-sec .ring {
   position: relative;
   margin: 0 auto;
-  width: 60vw;
-  height: 60vw;
+  width: 90vw;
+  height: 90vw;
+  transform: translate(0px, 35%);
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media only screen and (min-width: 1024px) {
+  main section.contact-sec .ring {
+    width: 600px;
+    height: 600px;
+    transform: translate(0px, 40%);
+  }
 }
 main section.contact-sec .ring i {
   position: absolute;
@@ -246,11 +349,57 @@ main section.contact-sec .ring i:nth-child(3) {
   animation: animate2 10s linear infinite;
 }
 main section.contact-sec .ring:hover i {
-  border: 6px solid var(--clr);
+  border: 4px solid var(--clr);
   filter: drop-shadow(0 0 20px var(--clr));
+}
+main section.contact-sec .ring .myinfo {
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: space-evenly;
+}
+main section.contact-sec .ring .myinfo h2 {
+  font-size: 4vh;
+  text-align: center;
 }
 main section.contact-sec .ring .myinfo .mymail {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5vh;
+  padding-left: 15%;
+}
+main section.contact-sec .ring .myinfo .mymail img {
+  width: 12%;
+}
+main section.contact-sec .ring .myinfo .mymail a {
+  font-size: 2vh;
+}
+main section.contact-sec .ring .myinfo .mynum {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5vh;
+  padding-left: 15%;
+}
+main section.contact-sec .ring .myinfo .mynum img {
+  width: 12%;
+}
+main section.contact-sec .ring .myinfo .mynum a {
+  font-size: 2vh;
+}
+main section.contact-sec .ring .myinfo .mygithub {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5vh;
+  padding-left: 15%;
+}
+main section.contact-sec .ring .myinfo .mygithub img {
+  width: 12%;
+}
+main section.contact-sec .ring .myinfo .mygithub a {
+  font-size: 2vh;
 }
 @keyframes animate {
   0% {
