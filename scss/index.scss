@@ -1,6 +1,11 @@
 @import "./style.scss";
 @import "./reset.scss";
 @import "./mixin.scss";
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+  }
 
 .container {
     width: 100%;
@@ -188,10 +193,16 @@ main {
 /* -------------------skills----------------------------- */
     section.skill-sec {
         height: 100vh;
-        background-color: beige;
+        background-image: radial-gradient(circle at 50% 50%,rgb(70, 71, 92),#1f2020);
+
+        h2 {
+            padding-top: 12vh;
+            text-align: center;
+        }
 
         form {
             // background-color: #f8bd65;
+            padding-top: 3vh;
         
             @include responsive(large-screens) {
                 position: absolute;
@@ -216,7 +227,7 @@ main {
 
                 &+label {
                     cursor: pointer;
-                    width: 100%; /* dd */
+                    width: 50%; /* dd */
                     font-size: 20px;
                     line-height: 25px;
 
@@ -269,8 +280,85 @@ main {
                     }
                 }
             }
+        } /* form */
+
+
+        .languages {
+            padding-top: 5vh;
+            perspective: 1000px;
+            background-color: #f1422b;
+
+
+            .skill-icon {
+                background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+                transform-style: preserve-3d;
+                transition: transform 0.5s;
+                width: 10vh;
+                height: 10vh;
+                position: relative;
+                border-radius: 50%;
+                
+                
+                &:hover {
+                    transform: rotateY(20deg) rotateX(10deg);
+                }    
+
+                &::before {
+                    content: "";
+                    width: 104%;
+                    height: 103%;
+                    border-radius: 50%;
+                background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+                // background-image: linear-gradient(90deg, #ffffff, #f5fd84 43%, #daff06);
+                    position: absolute;
+                    z-index: -1;
+                    top: -1%;
+                    left: -2%;
+                    animation: spin 2.5s linear infinite;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0 auto;
+                    transform: scale(0.8);
+                    filter: blur(calc(200px / 6));
+                background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+                // background-image: linear-gradient(var(--rotate), #fffb0a, #f8f8f8 43%, #fffb0c);
+                      opacity: 1;
+                    transition: opacity 0.5s;
+                    animation: spin 2.5s linear infinite;
+                  }
+
+                  @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                        --rotate: 0deg;
+                      }
+                      100% {
+                        transform: rotate(360deg);
+                        --rotate: 360deg;
+                      }
+                }
+                
+
+                img {
+                    scale: 0.6;
+                }
+            }
         }
-    }
+
+        .tools {
+            display: none;
+        }
+
+    } /* skill-sec */
 
     section.portfolio-sec{
         height: 100vh;
