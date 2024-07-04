@@ -321,19 +321,19 @@ main section.skill-sec form input[type=radio].toggle:checked + label:after {
 main section.skill-sec .languages {
   padding-top: 5vh;
   perspective: 1000px;
-  background-color: #f1422b;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10vh;
+  justify-items: center;
 }
 main section.skill-sec .languages .skill-icon {
+  width: 8vh;
+  height: 8vh;
+  position: relative;
   background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
   transform-style: preserve-3d;
   transition: transform 0.5s;
-  width: 10vh;
-  height: 10vh;
-  position: relative;
   border-radius: 50%;
-}
-main section.skill-sec .languages .skill-icon:hover {
-  transform: rotateY(20deg) rotateX(10deg);
 }
 main section.skill-sec .languages .skill-icon::before {
   content: "";
