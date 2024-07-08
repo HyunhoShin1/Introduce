@@ -98,6 +98,7 @@ header .logo {
   width: fit-content;
   margin-top: 10px;
   margin-left: -10px;
+  cursor: pointer;
 }
 header .mobile-menu-box .mobile-menu-bar {
   position: relative;
@@ -245,10 +246,12 @@ main section.skill-sec {
   height: 100vh;
   background-image: radial-gradient(circle at 50% 50%, rgb(70, 71, 92), #1f2020);
   /* form */
+  /* tooltip */
 }
 main section.skill-sec h2 {
   padding-top: 12vh;
   text-align: center;
+  color: white;
 }
 main section.skill-sec form {
   padding-top: 3vh;
@@ -256,12 +259,12 @@ main section.skill-sec form {
 @media only screen and (min-width: 1024px) {
   main section.skill-sec form {
     position: absolute;
-    margin-top: 200px;
-    margin-left: 400px;
+    margin-top: 50px;
+    margin-left: 780px;
   }
 }
 main section.skill-sec form .btn {
-  border: 3px solid rgb(0, 0, 0);
+  border: 3px solid rgb(24, 24, 24);
   display: inline-block;
   padding: 10px;
   position: relative;
@@ -285,7 +288,7 @@ main section.skill-sec form input[type=radio].toggle + label {
 }
 main section.skill-sec form input[type=radio].toggle + label:hover {
   background: none;
-  color: #1a1a1a;
+  color: #7a7a7a;
 }
 main section.skill-sec form input[type=radio].toggle + label:after {
   background: rgb(0, 0, 0);
@@ -326,14 +329,52 @@ main section.skill-sec .languages {
   row-gap: 10vh;
   justify-items: center;
 }
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec .languages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    height: 60vh;
+  }
+}
 main section.skill-sec .languages .skill-icon {
   width: 8vh;
   height: 8vh;
   position: relative;
   background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
-  transform-style: preserve-3d;
-  transition: transform 0.5s;
+  transition: transform 1s;
   border-radius: 50%;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec .languages .skill-icon {
+    position: absolute;
+    transform: none;
+    transition: transform 1s;
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(1) {
+    transform: rotate(150deg) translate(400px, 120px) rotate(-150deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(2) {
+    transform: rotate(130deg) translate(400px, 80px) rotate(-130deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(3) {
+    transform: rotate(110deg) translate(400px, 40px) rotate(-110deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(4) {
+    transform: rotate(90deg) translate(400px, 0px) rotate(-90deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(5) {
+    transform: rotate(70deg) translate(400px, -40px) rotate(-70deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(6) {
+    transform: rotate(50deg) translate(400px, -80px) rotate(-50deg);
+  }
+  main section.skill-sec .languages .skill-icon:nth-child(7) {
+    transform: rotate(30deg) translate(400px, -120px) rotate(-30deg);
+  }
 }
 main section.skill-sec .languages .skill-icon::before {
   content: "";
@@ -378,7 +419,152 @@ main section.skill-sec .languages .skill-icon img {
   scale: 0.6;
 }
 main section.skill-sec .tools {
+  padding-top: 5vh;
+  perspective: 1000px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 10vh;
+  justify-items: center;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec .tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    height: 60vh;
+  }
+}
+main section.skill-sec .tools .skill-icon {
+  width: 8vh;
+  height: 8vh;
+  position: relative;
+  background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+  transition: transform 1s;
+  border-radius: 50%;
+  cursor: pointer;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec .tools .skill-icon {
+    position: absolute;
+    transform: none;
+    transition: transform 1s;
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(1) {
+    transform: rotate(150deg) translate(400px, 120px) rotate(-150deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(2) {
+    transform: rotate(130deg) translate(400px, 80px) rotate(-130deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(3) {
+    transform: rotate(110deg) translate(400px, 40px) rotate(-110deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(4) {
+    transform: rotate(90deg) translate(400px, 0px) rotate(-90deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(5) {
+    transform: rotate(70deg) translate(400px, -40px) rotate(-70deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(6) {
+    transform: rotate(50deg) translate(400px, -80px) rotate(-50deg);
+  }
+  main section.skill-sec .tools .skill-icon:nth-child(7) {
+    transform: rotate(30deg) translate(400px, -120px) rotate(-30deg);
+  }
+}
+main section.skill-sec .tools .skill-icon::before {
+  content: "";
+  width: 104%;
+  height: 103%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+main section.skill-sec .tools .skill-icon::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  filter: blur(33.3333333333px);
+  background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    --rotate: 0deg;
+  }
+  100% {
+    transform: rotate(360deg);
+    --rotate: 360deg;
+  }
+}
+main section.skill-sec .tools .skill-icon img {
+  scale: 0.6;
+}
+main section.skill-sec .tooltip {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
   display: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  pointer-events: none;
+}
+@media only screen and (min-width: 1024px) {
+  main section.skill-sec .tooltip {
+    position: relative;
+    top: -320px;
+    left: 42%;
+    transform: translate(0, 0);
+  }
+}
+main section.skill-sec .tooltip .loading-bar-container {
+  position: relative;
+  margin-top: 50px;
+  height: 5px;
+  width: 100%;
+  height: 10px;
+  background-color: #ccc;
+  border: 1px solid #000;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+main section.skill-sec .tooltip .loading-bar {
+  height: 100%;
+  background: #007BFF;
+  width: 0%;
+  transition: width 0.2s linear;
+  border-radius: 2px;
+}
+main section.skill-sec .tooltip .per-text {
+  margin-top: 5px;
+  font-size: 12px;
+}
+main section.skill-sec .tooltip .tool-text {
+  padding-top: 10px;
 }
 main section.portfolio-sec {
   height: 100vh;

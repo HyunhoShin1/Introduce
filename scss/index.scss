@@ -32,6 +32,7 @@ header {
         width: fit-content;
         margin-top: 10px;
         margin-left: -10px;
+        cursor: pointer;
         // background-color: #f1422b;
         img{
 
@@ -198,6 +199,11 @@ main {
         h2 {
             padding-top: 12vh;
             text-align: center;
+            color: white;
+
+            @include responsive(large-screens) {
+                
+            }
         }
 
         form {
@@ -206,12 +212,12 @@ main {
         
             @include responsive(large-screens) {
                 position: absolute;
-                margin-top: 200px;
-                margin-left: 400px;
+                margin-top: 50px;
+                margin-left: 780px;
             }
 
             .btn {
-                border: 3px solid rgb(0, 0, 0);
+                border: 3px solid rgb(24, 24, 24);
                 display: inline-block;
                 padding: 10px;
                 position: relative;
@@ -237,7 +243,7 @@ main {
 
                     &:hover {
                         background: none;
-                        color: #1a1a1a;
+                        color: #7a7a7a;
                     }
 
                     &:after {
@@ -292,17 +298,42 @@ main {
             row-gap: 10vh;
             justify-items: center;
 
+            @include responsive(large-screens) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                position: relative;
+                height: 60vh;
+            }
+
             .skill-icon {
                 width: 8vh;
                 height: 8vh;
                 position: relative;
                 background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
-                transform-style: preserve-3d;
-                transition: transform 0.5s;
+                // transform-style: preserve-3d;
+                transition: transform 1s;
                 border-radius: 50%;
+                cursor: pointer;
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    transform: none;
+                    transition: transform 1s;
+
+                    &:nth-child(1) { transform: rotate(150deg) translate(400px, 120px) rotate(-150deg); }
+                    &:nth-child(2) { transform: rotate(130deg) translate(400px, 80px) rotate(-130deg); }
+                    &:nth-child(3) { transform: rotate(110deg) translate(400px, 40px) rotate(-110deg); }
+                    &:nth-child(4) { transform: rotate(90deg) translate(400px, 0px) rotate(-90deg); }
+                    &:nth-child(5) { transform: rotate(70deg) translate(400px, -40px) rotate(-70deg); }
+                    &:nth-child(6) { transform: rotate(50deg) translate(400px, -80px) rotate(-50deg); }
+                    &:nth-child(7) { transform: rotate(30deg) translate(400px, -120px) rotate(-30deg); }
+                }
                 
                 &:hover {
-                    // transform: rotateY(20deg) rotateX(10deg);
+                    // transform: rotateY(360deg) rotateX(0deg);
+
                 }    
 
                 &::before {
@@ -317,8 +348,9 @@ main {
                     top: -1%;
                     left: -2%;
                     animation: spin 2.5s linear infinite;
+                    
                 }
-
+                
                 &::after {
                     position: absolute;
                     content: "";
@@ -357,8 +389,158 @@ main {
         }
 
         .tools {
-            display: none;
+            padding-top: 5vh;
+            perspective: 1000px;
+            // background-color: #f1422b;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 10vh;
+            justify-items: center;
+
+            @include responsive(large-screens) {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                position: relative;
+                height: 60vh;
+            }
+
+            .skill-icon {
+                width: 8vh;
+                height: 8vh;
+                position: relative;
+                background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5));
+                // transform-style: preserve-3d;
+                transition: transform 1s;
+                border-radius: 50%;
+                cursor: pointer;
+
+                @include responsive(large-screens) {
+                    position: absolute;
+                    transform: none;
+                    transition: transform 1s;
+
+                    &:nth-child(1) { transform: rotate(150deg) translate(400px, 120px) rotate(-150deg); }
+                    &:nth-child(2) { transform: rotate(130deg) translate(400px, 80px) rotate(-130deg); }
+                    &:nth-child(3) { transform: rotate(110deg) translate(400px, 40px) rotate(-110deg); }
+                    &:nth-child(4) { transform: rotate(90deg) translate(400px, 0px) rotate(-90deg); }
+                    &:nth-child(5) { transform: rotate(70deg) translate(400px, -40px) rotate(-70deg); }
+                    &:nth-child(6) { transform: rotate(50deg) translate(400px, -80px) rotate(-50deg); }
+                    &:nth-child(7) { transform: rotate(30deg) translate(400px, -120px) rotate(-30deg); }
+                }
+                
+                &:hover {
+                    // transform: rotateY(360deg) rotateX(0deg);
+
+                }    
+
+                &::before {
+                    content: "";
+                    width: 104%;
+                    height: 103%;
+                    border-radius: 50%;
+                    background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.1));
+                    // background-image: linear-gradient(90deg, #ffffff, #f5fd84 43%, #daff06);
+                    position: absolute;
+                    z-index: -1;
+                    top: -1%;
+                    left: -2%;
+                    animation: spin 2.5s linear infinite;
+                    
+                }
+                
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: -1;
+                    height: 100%;
+                    width: 100%;
+                    margin: 0 auto;
+                    transform: scale(0.8);
+                    filter: blur(calc(200px / 6));
+                    background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.4));
+                    // background-image: linear-gradient(var(--rotate), #fffb0a, #f8f8f8 43%, #fffb0c);
+                      opacity: 1;
+                    transition: opacity 0.5s;
+                    animation: spin 2.5s linear infinite;
+                  }
+
+                  @keyframes spin {
+                    0% {
+                        transform: rotate(0deg);
+                        --rotate: 0deg;
+                      }
+                      100% {
+                        transform: rotate(360deg);
+                        --rotate: 360deg;
+                      }
+                }
+                
+
+                img {
+                    scale: 0.6;
+                }
+            }
         }
+
+        .tooltip {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            // white-space: nowrap;
+            background-color: white;
+            color: black;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            display: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            pointer-events: none;
+
+            @include responsive(large-screens) {
+                position: relative;
+                top: -320px; left: 42%;
+                transform: translate(0, 0);
+            }
+          
+            .loading-bar-container {
+              position: relative;
+              margin-top: 50px;
+              height: 5px;
+              width: 100%;
+              height: 10px;
+              background-color: #ccc;
+              border: 1px solid #000;
+              border-radius: 3px;
+              margin-bottom: 5px;
+            }
+          
+            .loading-bar {
+              height: 100%;
+              background: #007BFF;
+              width: 0%;
+              transition: width 0.2s linear;
+              border-radius: 2px;
+            }
+          
+            .per-text {
+              margin-top: 5px;
+              font-size: 12px;
+            }
+          
+            .tool-text {
+              padding-top: 10px;
+            }
+          } /* tooltip */
 
     } /* skill-sec */
 
