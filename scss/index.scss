@@ -21,6 +21,8 @@
 
 }
 
+html{overflow: hidden;}
+
 header {
     position: fixed;
     z-index: 1000;
@@ -35,7 +37,6 @@ header {
         cursor: pointer;
         // background-color: #f1422b;
         img{
-
         }
     }
     .mobile-menu-box {
@@ -84,18 +85,20 @@ header {
             }
             
             &.active span {
-                background-color: rgba(0,0,0,0.0);
+                background-color: rgba(0, 0, 0, 0);
             }
             
             &.active span:before {
                 margin-top: 0;
                 transform: rotate(45deg);
+                background-color: #000;
                 -webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
             }
             
             &.active span:after {
                 margin-top: 0;
                 transform: rotate(-45deg);
+                background-color: #000;
                 -webkit-transition-delay: 0s, 0.2s; transition-delay: 0s, 0.2s;
             }
         }
