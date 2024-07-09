@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="./js/SectionScroll.js"></script>
     <script src="./js/index.js"></script>
 
     <title>Hyunho｜Portfolio</title>
@@ -38,7 +39,7 @@
                 </ul>
             </nav>
         </div> <!-- container -->
-            <section class="mainsec">
+            <section class="mainsec" id="mainsec">
                 <div class="container">
                     <div class="elevator">
                         <h1>▼ PORTFOLIO △</h1>
@@ -46,14 +47,14 @@
                     </div>
                 </div>
             </section> <!-- maingsec -->
-            <section class="aboutme-sec">
+            <section class="aboutme-sec" id="aboutme-sec">
                 <div class="container">
                     <div class="face">
                         <img src="./images/emoji1.png" alt="face">
                     </div>
                 </div>
             </section>
-            <section class="skill-sec">
+            <section class="skill-sec" id="skill-sec">
                 <div class="container">
                     <h2>Skills</h2>
                     <form action="#" id="toggle-search-frm">
@@ -91,10 +92,10 @@
                     </div>
                 </div>
             </section>
-            <section class="portfolio-sec">
+            <section class="portfolio-sec" id="portfolio-sec">
 
             </section>
-            <section class="contact-sec">
+            <section class="contact-sec" id="contact-sec">
                 <div class="container">
                     <div class="ring">
                         <i style="--clr:#00ff0a;"></i>
@@ -116,8 +117,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </section>
+
+            <div class="elevator-doors">
+                <div class="door left"></div>
+                <div class="door right"></div>
+            </div>
     </main>
     <footer>
         <div class="container">
