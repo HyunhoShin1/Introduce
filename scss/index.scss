@@ -531,7 +531,7 @@ main {
               height: 100%;
               background: #007BFF;
               width: 0%;
-              transition: width 0.2s linear;
+              transition: width 0.3s linear;
               border-radius: 2px;
             }
           
@@ -547,9 +547,43 @@ main {
 
     } /* skill-sec */
 
-    section.portfolio-sec{
+    section.portfolio-sec {
         height: 100vh;
         background-color: aquamarine;
+
+        .prev {
+
+        }
+
+        .portfolio-box {
+            display: flex;
+            flex-direction: column;
+
+            .portfolio-img {
+                width: 80%;
+                height: 30vh;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .portfolio-detail {
+                display: flex;
+                flex-direction: column;
+
+                h2 {
+                    font-size: 150%;
+                    text-align: center;
+                    
+                    .special-title{
+                        display: block;
+                    }
+                }
+
+                p.detail-text {
+                    text-align: justify;
+                }
+            }
+        }
     }
 
 

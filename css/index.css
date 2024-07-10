@@ -562,7 +562,7 @@ main section.skill-sec .tooltip .loading-bar {
   height: 100%;
   background: #007BFF;
   width: 0%;
-  transition: width 0.2s linear;
+  transition: width 0.3s linear;
   border-radius: 2px;
 }
 main section.skill-sec .tooltip .per-text {
@@ -575,6 +575,30 @@ main section.skill-sec .tooltip .tool-text {
 main section.portfolio-sec {
   height: 100vh;
   background-color: aquamarine;
+}
+main section.portfolio-sec .portfolio-box {
+  display: flex;
+  flex-direction: column;
+}
+main section.portfolio-sec .portfolio-box .portfolio-img {
+  width: 80%;
+  height: 30vh;
+  overflow: hidden;
+  margin: 0 auto;
+}
+main section.portfolio-sec .portfolio-box .portfolio-detail {
+  display: flex;
+  flex-direction: column;
+}
+main section.portfolio-sec .portfolio-box .portfolio-detail h2 {
+  font-size: 150%;
+  text-align: center;
+}
+main section.portfolio-sec .portfolio-box .portfolio-detail h2 .special-title {
+  display: block;
+}
+main section.portfolio-sec .portfolio-box .portfolio-detail p.detail-text {
+  text-align: justify;
 }
 main section.contact-sec {
   height: 100vh;

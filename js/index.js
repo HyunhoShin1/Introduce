@@ -103,21 +103,26 @@ window.onload = function () {
   document.querySelectorAll(".skill-icon").forEach(function (icon) {
     icon.addEventListener("mouseenter", function () {
       var toolname = this.dataset.name;
-      var widthPercentage = this.dataset.width;
+      var widthPercentage = 0;
       var text = this.dataset.text;
       var tooltip = document.querySelector(".tooltip");
+      const targetWidth = parseInt(this.dataset.width);
+      var loadingBar = document.querySelector(".loading-bar");
 
       tooltip.style.display = "block";
       document.querySelector(".toolname").textContent = toolname;
 
-      var loadingBar = document.querySelector(".loading-bar");
       loadingBar.style.width = "0%";
-      var animateWidth = function () {
-        loadingBar.style.width = widthPercentage + "%";
-        document.querySelector(".per-text").textContent = widthPercentage + "%";
-      };
-      setTimeout(animateWidth, 200);
 
+      var animateWidth = function () {
+        if (widthPercentage <= targetWidth) {
+          loadingBar.style.width = widthPercentage + "%";
+          document.querySelector(".per-text").textContent = widthPercentage + "%";
+          widthPercentage++;
+          setTimeout(animateWidth, 0);
+        }
+      };
+      animateWidth();
       document.querySelector(".tool-text").textContent = text;
     });
 
