@@ -134,4 +134,33 @@ window.onload = function () {
       document.querySelector(".per-text").textContent = "0%";
     });
   });
+
+
+
+  const prevBtn = document.querySelector('.arrow.prev');
+    const nextBtn = document.querySelector('.arrow.next');
+    const slideCarousel = document.querySelector('.slide-carousel');
+    let currentIndex = 0;
+
+    const slideWidth = document.querySelector('.portfolio-box').offsetWidth;
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateSlidePosition();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < slideCarousel.children.length - 1) {
+            currentIndex++;
+            updateSlidePosition();
+        }
+    });
+
+    function updateSlidePosition() {
+        const newTransformValue = -currentIndex * slideWidth;
+        slideCarousel.style.transform = `translateX(${newTransformValue}px)`;
+    }
+
 };

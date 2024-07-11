@@ -121,9 +121,9 @@ main {
 
         @include responsive(large-screens) {
             display: block;
-            background-color: transparent;
             text-align: left;
-            width: 20%;
+            width: fit-content;
+            background-color: transparent;
             color: white;
         }
 
@@ -184,17 +184,68 @@ main {
         }
     }
 
-/* -------------------------------------------- */
+/* ----------------aboutme-sec---------------------------- */
     section.aboutme-sec {
         height: 100vh;
-        background-color: aliceblue;
+        background: url(../images/marble2.png);
 
         .face {
-            width: 300px;
+            width: 150px;
+
+            @include responsive(large-screens) {
+                width: 300px;
+            }
+        }
+
+        p {
+            width: 100%;
+            padding: 30px;
+            border: 1px solid black;
+            border-radius: 30px;
+            font-size: 16px;
+            background-color: white;
+            box-shadow: 0 10px 6px -6px #777;            
+            
+            @include responsive(large-screens) {
+                width: 800px;
+                font-size: 24px;
+            }
+        }
+
+        .hello {
+            font-size: 16px;
+            @include responsive(large-screens) {
+                font-size: 36px;
+                transform: translate(400px, -200px);
+            }
+        }
+        .effort {
+
+            @include responsive(large-screens) {
+                transform: translate(100px, 100px);
+            }
+        }
+        .ready {
+
+            @include responsive(large-screens) {
+                transform: translate(500px, -300px);
+            }
+        }
+        .personality {
+            
+            @include responsive(large-screens) {
+                transform: translate(1000px, -150px);
+            }
+        }
+        .vision {
+
+            @include responsive(large-screens) {
+                transform: translate(400px, -150px);
+            }
         }
     }
 
-/* -------------------skills----------------------------- */
+/* -------------------skills-sec----------------------------- */
     section.skill-sec {
         height: 100vh;
         background-image: radial-gradient(circle at 50% 50%,rgb(70, 71, 92),#1f2020);
@@ -547,40 +598,125 @@ main {
 
     } /* skill-sec */
 
+
+/* --------------------portfolio-sec----------------- */
     section.portfolio-sec {
         height: 100vh;
-        background-color: aquamarine;
+        background: url(../images/marble2.png);
+        background-size: 100% 100%;
+        overflow: hidden;
 
-        .prev {
-
+        @include responsive(large-screens) {
+            background-size: cover;
         }
 
-        .portfolio-box {
-            display: flex;
-            flex-direction: column;
+        .container {
+            position: relative;
+        }
+        
+        .slide-box {
+            padding-top: 10vh;
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            // overflow: hidden;
 
-            .portfolio-img {
-                width: 80%;
-                height: 30vh;
-                overflow: hidden;
-                margin: 0 auto;
+            @include responsive(large-screens) {
+                
             }
 
-            .portfolio-detail {
-                display: flex;
-                flex-direction: column;
+            .prev {
+                position: absolute;
+                z-index: 100;
+                top: 100%; left: 0;
+                cursor: pointer;
+                font-size: 100px;
 
-                h2 {
-                    font-size: 150%;
-                    text-align: center;
-                    
-                    .special-title{
-                        display: block;
-                    }
+                @include responsive(large-screens) {
+                    top: 70%; left: 8%;
+                }
+            }
+
+            .slide-carousel {
+                display: flex;
+                width: 100%;
+                margin: 0 auto;
+                transition: transform 0.5s ease-in-out;
+                overflow: hidden;
+
+                @include responsive(large-screens) {
+                    width: 1000px;
                 }
 
-                p.detail-text {
-                    text-align: justify;
+                .portfolio-box {
+                    min-width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 10vh;
+
+                    @include responsive(large-screens) {
+                        flex-direction: row;
+                        margin-top: 20vh;
+                    }
+        
+                    .portfolio-img {
+                        width: 100%;
+                        height: 30vh;
+                        overflow: hidden;
+                        margin: 0 auto;
+                    }
+        
+                    .portfolio-detail {
+                        display: flex;
+                        flex-direction: column;
+        
+                        h2 {
+                            font-size: 150%;
+                            text-align: center;
+                            
+                            .special-title{
+                                display: block;
+                            }
+                        }
+                        
+                        p.term {
+                            text-align: center;
+                        }
+        
+                        p.detail-text {
+                            text-align: center;
+                        }
+                        
+                        .tag-text {
+                            ul {
+                                display: flex;
+                                justify-content: center;
+                                gap: 2vh;
+        
+                            }
+                        }
+        
+                        .portfolio-btn {
+                            display: flex;
+                            justify-content: space-evenly;
+        
+                            div {
+                                border: 1px solid black;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .next {
+                position: absolute;
+                z-index: 100;
+                top: 100%; right: 0%;
+                cursor: pointer;
+                font-size: 100px;
+
+                @include responsive(large-screens) {
+                top: 70%; right: 0%;
                 }
             }
         }
@@ -591,13 +727,13 @@ main {
 
 
 
-
+/* -----------contact-sec----------------- */
 
 
 
     section.contact-sec {
         height: 100vh;
-        background-color: #f8bd65;
+        background: url(../images/marble2.png);
         overflow: hidden;
 
         .ring {

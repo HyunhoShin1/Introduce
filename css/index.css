@@ -163,9 +163,11 @@ header .mobile-menu-box .mobile-menu-bar.active span:after {
 /* ---------------side menu----------------------------- */
 main {
   /* -------------------mainsec------------------------------- */
-  /* -------------------------------------------- */
-  /* -------------------skills----------------------------- */
+  /* ----------------aboutme-sec---------------------------- */
+  /* -------------------skills-sec----------------------------- */
   /* skill-sec */
+  /* --------------------portfolio-sec----------------- */
+  /* -----------contact-sec----------------- */
   /* contact-sec */
 }
 main nav.side-menu {
@@ -182,9 +184,10 @@ main nav.side-menu {
 @media only screen and (min-width: 1024px) {
   main nav.side-menu {
     display: block;
-    background-color: transparent;
     text-align: left;
-    width: 20%;
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: transparent;
     color: white;
   }
 }
@@ -244,10 +247,59 @@ main section.mainsec .elevator img {
 }
 main section.aboutme-sec {
   height: 100vh;
-  background-color: aliceblue;
+  background: url(../images/marble2.png);
 }
 main section.aboutme-sec .face {
-  width: 300px;
+  width: 150px;
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .face {
+    width: 300px;
+  }
+}
+main section.aboutme-sec p {
+  width: 100%;
+  padding: 30px;
+  border: 1px solid black;
+  border-radius: 30px;
+  font-size: 16px;
+  background-color: white;
+  box-shadow: 0 10px 6px -6px #777;
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec p {
+    width: 800px;
+    font-size: 24px;
+  }
+}
+main section.aboutme-sec .hello {
+  font-size: 16px;
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .hello {
+    font-size: 36px;
+    transform: translate(400px, -200px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .effort {
+    transform: translate(100px, 100px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .ready {
+    transform: translate(500px, -300px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .personality {
+    transform: translate(1000px, -150px);
+  }
+}
+@media only screen and (min-width: 1024px) {
+  main section.aboutme-sec .vision {
+    transform: translate(400px, -150px);
+  }
 }
 main section.skill-sec {
   height: 100vh;
@@ -574,35 +626,114 @@ main section.skill-sec .tooltip .tool-text {
 }
 main section.portfolio-sec {
   height: 100vh;
-  background-color: aquamarine;
+  background: url(../images/marble2.png);
+  background-size: 100% 100%;
+  overflow: hidden;
 }
-main section.portfolio-sec .portfolio-box {
+@media only screen and (min-width: 1024px) {
+  main section.portfolio-sec {
+    background-size: cover;
+  }
+}
+main section.portfolio-sec .container {
+  position: relative;
+}
+main section.portfolio-sec .slide-box {
+  padding-top: 10vh;
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+main section.portfolio-sec .slide-box .prev {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  cursor: pointer;
+  font-size: 100px;
+}
+@media only screen and (min-width: 1024px) {
+  main section.portfolio-sec .slide-box .prev {
+    top: 70%;
+    left: 8%;
+  }
+}
+main section.portfolio-sec .slide-box .slide-carousel {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  transition: transform 0.5s ease-in-out;
+  overflow: hidden;
+}
+@media only screen and (min-width: 1024px) {
+  main section.portfolio-sec .slide-box .slide-carousel {
+    width: 1000px;
+  }
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box {
+  min-width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 10vh;
 }
-main section.portfolio-sec .portfolio-box .portfolio-img {
-  width: 80%;
+@media only screen and (min-width: 1024px) {
+  main section.portfolio-sec .slide-box .slide-carousel .portfolio-box {
+    flex-direction: row;
+    margin-top: 20vh;
+  }
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-img {
+  width: 100%;
   height: 30vh;
   overflow: hidden;
   margin: 0 auto;
 }
-main section.portfolio-sec .portfolio-box .portfolio-detail {
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail {
   display: flex;
   flex-direction: column;
 }
-main section.portfolio-sec .portfolio-box .portfolio-detail h2 {
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail h2 {
   font-size: 150%;
   text-align: center;
 }
-main section.portfolio-sec .portfolio-box .portfolio-detail h2 .special-title {
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail h2 .special-title {
   display: block;
 }
-main section.portfolio-sec .portfolio-box .portfolio-detail p.detail-text {
-  text-align: justify;
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail p.term {
+  text-align: center;
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail p.detail-text {
+  text-align: center;
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail .tag-text ul {
+  display: flex;
+  justify-content: center;
+  gap: 2vh;
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail .portfolio-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
+main section.portfolio-sec .slide-box .slide-carousel .portfolio-box .portfolio-detail .portfolio-btn div {
+  border: 1px solid black;
+}
+main section.portfolio-sec .slide-box .next {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  right: 0%;
+  cursor: pointer;
+  font-size: 100px;
+}
+@media only screen and (min-width: 1024px) {
+  main section.portfolio-sec .slide-box .next {
+    top: 70%;
+    right: 0%;
+  }
 }
 main section.contact-sec {
   height: 100vh;
-  background-color: #f8bd65;
+  background: url(../images/marble2.png);
   overflow: hidden;
 }
 main section.contact-sec .ring {
