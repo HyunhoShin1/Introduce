@@ -137,30 +137,28 @@ window.onload = function () {
 
 
 
-  const prevBtn = document.querySelector('.arrow.prev');
-    const nextBtn = document.querySelector('.arrow.next');
-    const slideCarousel = document.querySelector('.slide-carousel');
-    let currentIndex = 0;
+  let currentIndex = 0;
+const carousel = document.querySelector('.slide-carousel');
+const boxes = document.querySelectorAll('.portfolio-box');
+const totalBoxes = boxes.length;
 
-    const slideWidth = document.querySelector('.portfolio-box').offsetWidth;
+document.querySelector('.next').addEventListener('click', () => {
+  if (currentIndex < totalBoxes - 1) {
+    currentIndex++;
+    updateSlider();
+  }
+});
 
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateSlidePosition();
-        }
-    });
+document.querySelector('.prev').addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateSlider();
+  }
+});
 
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < slideCarousel.children.length - 1) {
-            currentIndex++;
-            updateSlidePosition();
-        }
-    });
-
-    function updateSlidePosition() {
-        const newTransformValue = -currentIndex * slideWidth;
-        slideCarousel.style.transform = `translateX(${newTransformValue}px)`;
-    }
+function updateSlider() {
+  const offset = -currentIndex * 100; // 100% per slide
+  carousel.style.transform = `translateX(${offset}%)`;
+}
 
 };

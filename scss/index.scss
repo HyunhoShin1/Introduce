@@ -111,7 +111,7 @@ main {
     nav.side-menu {
         display: none;
         position: fixed;
-        z-index: 100;
+        z-index: 500;
         margin: 0 auto;
         width: 100%;
         height: 100vh;
@@ -125,6 +125,7 @@ main {
             width: fit-content;
             background-color: transparent;
             color: white;
+            margin-left: 50px;
         }
 
         .gnb {
@@ -623,18 +624,18 @@ main {
             // overflow: hidden;
 
             @include responsive(large-screens) {
-                
+                height: 100vh;
             }
 
             .prev {
                 position: absolute;
-                z-index: 100;
+                z-index: 10;
                 top: 100%; left: 0;
                 cursor: pointer;
                 font-size: 100px;
 
                 @include responsive(large-screens) {
-                    top: 70%; left: 8%;
+                    top: 50%; left: 8%;
                 }
             }
 
@@ -644,32 +645,47 @@ main {
                 margin: 0 auto;
                 transition: transform 0.5s ease-in-out;
                 overflow: hidden;
+                // background-color: #007BFF;
 
                 @include responsive(large-screens) {
-                    width: 1000px;
+                    width: 1200px;
+                    transform: translateX(50px);
                 }
 
                 .portfolio-box {
                     min-width: 100%;
                     display: flex;
                     flex-direction: column;
+                    align-items: center;
                     margin-top: 10vh;
+                    // background-color: wheat;
 
                     @include responsive(large-screens) {
                         flex-direction: row;
-                        margin-top: 20vh;
+                        margin-top: 15vh;
+                        
                     }
         
                     .portfolio-img {
                         width: 100%;
                         height: 30vh;
-                        overflow: hidden;
+                        // overflow: hidden;
                         margin: 0 auto;
+                        // background-color: #007BFF;
+
+                        @include responsive(large-screens) {
+                            width: 60%;
+                            height: 500px;
+                        }
                     }
         
                     .portfolio-detail {
                         display: flex;
                         flex-direction: column;
+
+                        @include responsive(large-screens) {
+                            width: 40%;
+                        }
         
                         h2 {
                             font-size: 150%;
@@ -711,13 +727,13 @@ main {
 
             .next {
                 position: absolute;
-                z-index: 100;
+                z-index: 10;
                 top: 100%; right: 0%;
                 cursor: pointer;
                 font-size: 100px;
 
                 @include responsive(large-screens) {
-                top: 70%; right: 0%;
+                top: 50%; right: 0%;
                 }
             }
         }
