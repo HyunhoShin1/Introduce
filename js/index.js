@@ -138,7 +138,7 @@ window.onload = function () {
 
 
   let currentIndex = 0;
-const carousel = document.querySelector('.slide-carousel');
+const wrapper = document.querySelector('.slide-wrapper');
 const boxes = document.querySelectorAll('.portfolio-box');
 const totalBoxes = boxes.length;
 
@@ -158,7 +158,7 @@ document.querySelector('.prev').addEventListener('click', () => {
 
 function updateSlider() {
   const offset = -currentIndex * 100; // 100% per slide
-  carousel.style.transform = `translateX(${offset}%)`;
+  wrapper.style.transform = `translateX(${offset}%)`;
 }
 
 };
