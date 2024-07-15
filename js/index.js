@@ -1,12 +1,22 @@
 window.onload = function () {
+
   var html = document.documentElement;
   var body = document.body;
+
+  /* 메뉴 엘레베이터 이동 및 메뉴로고 색깔 변경 */
   var page = 1;
   var sections = document.querySelectorAll("section");
   var lastPage = sections.length;
   var isScrolling = false;
 
-  window.scrollTo(0, 0);
+  if (localStorage.getItem('currentPage')) {
+    page = parseInt(localStorage.getItem('currentPage'), 10);
+    var posTop = (page - 1) * window.innerHeight;
+    updateSideMenuAndLogo();
+    window.scrollTo(0, posTop);
+  } else {
+    window.scrollTo(0, 0);
+  }
 
   function closeDoors(callback) {
     var doors = document.querySelectorAll(".elevator-doors");
@@ -21,19 +31,45 @@ window.onload = function () {
     }, 1000);
   }
 
+  function updateSideMenuAndLogo() {
+    var scrollY = window.scrollY;
+    if ((scrollY >= 912 && scrollY <= 1824) || scrollY >= 2736) {
+      document.querySelector('.side-menu').style.color = 'black';
+      document.querySelector('.logo img').src = './images/logo-black.png';
+    } else {
+      document.querySelector('.side-menu').style.color = '';
+      document.querySelector('.logo img').src = './images/logo-white.png';
+    }
+  }
+
+
   function scrollToSection(index) {
     if (isScrolling || index < 1 || index > lastPage) return;
 
     isScrolling = true;
     page = index;
+    localStorage.setItem('currentPage', page);
     var posTop = (page - 1) * window.innerHeight;
     closeDoors(function () {
       window.scrollTo(0, posTop);
       isScrolling = false;
+      
+      console.log('Scroll Y Position:', window.scrollY);
+
+      updateSideMenuAndLogo();
+      
     });
   }
 
-  window.addEventListener("wheel", function (e) {
+  window.addEventListener('scroll', function() {
+    updateSideMenuAndLogo();
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    updateSideMenuAndLogo();
+  });
+
+  function wheelHandler(e) {
     if (isScrolling) return;
     e.preventDefault();
 
@@ -46,7 +82,17 @@ window.onload = function () {
     }
 
     scrollToSection(page);
-  });
+  }
+
+  function addScrollListener() {
+    window.addEventListener("wheel", wheelHandler, { passive: false });
+  }
+
+  function removeScrollListener() {
+    window.removeEventListener("wheel", wheelHandler);
+  }
+
+  addScrollListener();
 
   document.querySelectorAll(".gnb li").forEach(function (li, index) {
     li.addEventListener("click", function () {
@@ -56,25 +102,31 @@ window.onload = function () {
 
   /* 로고 클릭 */
   document.querySelector(".logo").addEventListener("click", function () {
+    if (menuBar.classList.contains("active")) return;
     scrollToSection(1);
   });
 
   /* 모바일 메뉴 버튼 */
   var menuBar = document.querySelector(".mobile-menu-bar");
-  var sideMenu = document.querySelector(".side-menu")
+  var sideMenu = document.querySelector(".side-menu");
   var logo = document.querySelector(".logo");
-    menuBar.addEventListener("click", function (e) {
-      e.preventDefault();
-      if (sideMenu.style.display === 'block') {
-        sideMenu.style.display = 'none';
-        menuBar.classList.remove('active');
-        logo.style.visibility = 'visible';
-      } else {
-        sideMenu.style.display = 'block';
-        menuBar.classList.add('active');
-        logo.style.visibility = 'hidden';
-      }
-    });
+
+  menuBar.addEventListener("click", function (e) {
+    e.preventDefault();
+    if (sideMenu.style.display === "block") {
+      sideMenu.style.display = "none";
+      menuBar.classList.remove("active");
+      logo.style.visibility = "visible";
+      document.documentElement.style.overflow = "";
+      addScrollListener();
+    } else {
+      sideMenu.style.display = "block";
+      menuBar.classList.add("active");
+      logo.style.visibility = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      removeScrollListener();
+    }
+  });
 
   /* 스킬 탭버튼 */
   document.getElementById("toggle-on").addEventListener("click", tabmenu1);
@@ -117,7 +169,8 @@ window.onload = function () {
       var animateWidth = function () {
         if (widthPercentage <= targetWidth) {
           loadingBar.style.width = widthPercentage + "%";
-          document.querySelector(".per-text").textContent = widthPercentage + "%";
+          document.querySelector(".per-text").textContent =
+            widthPercentage + "%";
           widthPercentage++;
           setTimeout(animateWidth, 0);
         }
@@ -135,30 +188,28 @@ window.onload = function () {
     });
   });
 
-
-
+  /* 포트폴리오 슬라이드 */
   let currentIndex = 0;
-const wrapper = document.querySelector('.slide-wrapper');
-const boxes = document.querySelectorAll('.portfolio-box');
-const totalBoxes = boxes.length;
+  const wrapper = document.querySelector(".slide-wrapper");
+  const boxes = document.querySelectorAll(".portfolio-box");
+  const totalBoxes = boxes.length;
 
-document.querySelector('.next').addEventListener('click', () => {
-  if (currentIndex < totalBoxes - 1) {
-    currentIndex++;
-    updateSlider();
+  document.querySelector(".next").addEventListener("click", () => {
+    if (currentIndex < totalBoxes - 1) {
+      currentIndex++;
+      updateSlider();
+    }
+  });
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlider();
+    }
+  });
+
+  function updateSlider() {
+    const offset = -currentIndex * 100;
+    wrapper.style.transform = `translateX(${offset}%)`;
   }
-});
-
-document.querySelector('.prev').addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateSlider();
-  }
-});
-
-function updateSlider() {
-  const offset = -currentIndex * 100; // 100% per slide
-  wrapper.style.transform = `translateX(${offset}%)`;
-}
-
 };
