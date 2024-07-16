@@ -3,11 +3,14 @@ window.onload = function () {
   var html = document.documentElement;
   var body = document.body;
 
-  /* 메뉴 엘레베이터 이동 및 메뉴로고 색깔 변경 */
+  /* 메뉴 엘레베이터 이동 및 메뉴,헤더 색깔 변경 */
+  var logo = document.querySelector('.logo');
+  var sideMenu = document.querySelector('.side-menu');
+  var sections = document.querySelectorAll('section');
   var page = 1;
-  var sections = document.querySelectorAll("section");
   var lastPage = sections.length;
   var isScrolling = false;
+
 
   if (localStorage.getItem('currentPage')) {
     page = parseInt(localStorage.getItem('currentPage'), 10);
@@ -19,26 +22,44 @@ window.onload = function () {
   }
 
   function closeDoors(callback) {
-    var doors = document.querySelectorAll(".elevator-doors");
+    var doors = document.querySelectorAll('.elevator-doors');
+    
     doors.forEach(function (door) {
-      door.classList.add("doors-closing");
+      door.classList.add('doors-closing');
     });
+
+    document.documentElement.classList.add('shake');
+    setTimeout(function() {
+        document.documentElement.classList.remove('shake');
+    }, 1000);
+
     setTimeout(function () {
       if (callback) callback();
       doors.forEach(function (door) {
-        door.classList.remove("doors-closing");
+        door.classList.remove('doors-closing');
       });
+      
     }, 1000);
   }
 
   function updateSideMenuAndLogo() {
     var scrollY = window.scrollY;
+    var logoImage = document.querySelector('.logo img')
+    var mobileSpan = document.querySelectorAll(".span1, .span2, .span3")
+ 
     if ((scrollY >= 912 && scrollY <= 1824) || scrollY >= 2736) {
-      document.querySelector('.side-menu').style.color = 'black';
-      document.querySelector('.logo img').src = './images/logo-black.png';
+      sideMenu.style.color = 'black';
+      logoImage.src = './images/logo-black.png';
+      mobileSpan.forEach(function(span) {
+        span.style.backgroundColor = 'black';
+      });
+
     } else {
-      document.querySelector('.side-menu').style.color = '';
-      document.querySelector('.logo img').src = './images/logo-white.png';
+      sideMenu.style.color = '';
+      logoImage.src = './images/logo-white.png';
+      mobileSpan.forEach(function(span) {
+        span.style.backgroundColor = 'white';
+      });
     }
   }
 
@@ -94,33 +115,51 @@ window.onload = function () {
 
   addScrollListener();
 
+
+  /* gnb 메뉴 클릭 */
   document.querySelectorAll(".gnb li").forEach(function (li, index) {
-    li.addEventListener("click", function () {
+    li.addEventListener("click", function (e) {
+      e.preventDefault();
       scrollToSection(index + 2);
+
+      if (window.innerWidth <= 768) {
+        setTimeout(function() {
+          sideMenu.style.display = 'none';
+          menuBar.classList.remove("active");
+          logo.style.visibility = "visible";
+          document.documentElement.style.overflow = "";
+          addScrollListener();
+        }, 500);
+      }
     });
   });
 
   /* 로고 클릭 */
-  document.querySelector(".logo").addEventListener("click", function () {
+  logo.addEventListener("click", function () {
     if (menuBar.classList.contains("active")) return;
     scrollToSection(1);
   });
 
   /* 모바일 메뉴 버튼 */
   var menuBar = document.querySelector(".mobile-menu-bar");
-  var sideMenu = document.querySelector(".side-menu");
-  var logo = document.querySelector(".logo");
+  var menuItems = document.querySelectorAll(".gnb li")
 
   menuBar.addEventListener("click", function (e) {
     e.preventDefault();
     if (sideMenu.style.display === "block") {
       sideMenu.style.display = "none";
+      setTimeout(() => {
+        sideMenu.classList.remove('show');       
+      }, 100);
       menuBar.classList.remove("active");
       logo.style.visibility = "visible";
       document.documentElement.style.overflow = "";
       addScrollListener();
     } else {
       sideMenu.style.display = "block";
+      setTimeout(() => {
+        sideMenu.classList.add('show');       
+      }, 10);
       menuBar.classList.add("active");
       logo.style.visibility = "hidden";
       document.documentElement.style.overflow = "hidden";
@@ -128,6 +167,63 @@ window.onload = function () {
     }
   });
 
+
+  /* 글자깜빡이게 */
+  var textElement = document.querySelector('.blink')
+  var texts = ["▼", "▽"];
+  let index = 0;
+
+  function changeText() {
+    textElement.innerText = texts[index];
+    index = (index + 1) % texts.length;
+  }
+  setInterval(changeText, 500);
+
+  /* 텍스트 드래그 */
+  const dragText = document.querySelector('.dragtext')
+  let offsetX, offsetY, isDragging = false;
+
+  dragText.addEventListener('mousedown', (e) => {
+    offsetX = e.clientX - dragText.getBoundingClientRect().left;
+    offsetY = e.clientY - dragText.getBoundingClientRect().top;
+    isDragging = true;
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      dragText.style.left = `${e.clientX - offsetX - 59}px`;
+      dragText.style.top = `${e.clientY - offsetY}px`;
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+  });
+
+  dragText.addEventListener('touchstart', (e) => {
+    const touch = e.touches[0];
+    offsetX = touch.clientX - dragText.getBoundingClientRect().left;
+    offsetY = touch.clientY - dragText.getBoundingClientRect().top;
+    isDragging = true;
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging) {
+      const touch = e.touches[0];
+      dragText.style.left = `${touch.clientX - offsetX}px`;
+      dragText.style.top = `${touch.clientY - offsetY}px`;
+    }
+  });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  /* -------------------aboutme-sec------------------------- */
+  
+  
+  
+  /* ---------------------skill-sec----------------- */
   /* 스킬 탭버튼 */
   document.getElementById("toggle-on").addEventListener("click", tabmenu1);
   function tabmenu1() {
@@ -188,6 +284,8 @@ window.onload = function () {
     });
   });
 
+
+/* ---------------portfolio-sec----------------- */
   /* 포트폴리오 슬라이드 */
   let currentIndex = 0;
   const wrapper = document.querySelector(".slide-wrapper");
