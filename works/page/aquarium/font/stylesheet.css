@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'LH L';
+    src: url('LHL.eot');
+    src: url('LHL.eot?#iefix') format('embedded-opentype'),
+        url('LHL.woff2') format('woff2'),
+        url('LHL.woff') format('woff'),
+        url('LHL.ttf') format('truetype'),
+        url('LHL.svg#LHL') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

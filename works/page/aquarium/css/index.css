@@ -1,0 +1,530 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'LH L';
+    src: url('../font/LHL.eot');
+    src: url('../font/LHL.eot?#iefix') format('embedded-opentype'),
+        url('../font/LHL.woff2') format('woff2'),
+        url('../font/LHL.woff') format('woff'),
+        url('../font/LHL.ttf') format('truetype'),
+        url('../font/LHL.svg#LHL') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    font-family: 'LH L';
+    font-size: 16px;
+    color: white;
+}
+.container {
+    position: relative;
+    width: 1320px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* background-color: rgb(165, 219, 190); */
+}
+
+/* ===============================header========================== */
+.logo-topmenu-mainmenu {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    width: 1500px;
+    height: 110px;
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.logo-menu-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    /* background-color: rgb(209, 137, 43); */
+}
+.logo img {
+    padding-top: 15px;
+    width: 146px;
+}
+.main-menu .gnb {
+    display: flex;
+    justify-content: space-between;
+    width: 948px;
+    /* background-color: rgb(80, 24, 126); */
+}
+.main-menu .gnb > li {
+    padding-right: 70px;
+    border-right: 1px solid white;
+    /* background-color: aquamarine; */
+}
+.main-menu .gnb > li:last-child {
+    padding-right: 0;
+    border-right: 0;
+    /* background-color: azure; */
+}
+.main-menu .gnb > li > a {
+    font-size: 16px;
+    color: white;
+    letter-spacing: 2px;
+    /* background-color: antiquewhite; */
+}
+.top-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 220px;
+    /* background-color: blue; */
+}
+.top-menu > .topmenu-list {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.top-menu > .topmenu-list > li {
+    padding-right: 10px;
+    border-right: 1px solid white;
+}
+.top-menu > .topmenu-list > li:last-child {
+    padding-right: 0;
+    border-right: 0;
+}
+.top-menu > .topmenu-list a {
+    font-size: 12px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
+
+/* ===============================main========================== */
+
+/* **************intro-page*************** */
+.intro-page {
+    height: 1080px;
+    background: url(../images/1page_background.jpg) no-repeat;
+}
+.intro-page .intro-text {
+    /* padding: 646px 0 280px 940px; */
+    transform: translate(0, 646px);
+    text-align: right;
+    /* background-color: aqua; */
+}
+.intro-page .intro-text > h2 {
+    font-size: 50px;
+    letter-spacing: 10px;
+    margin-right: -10px;
+    line-height: 1.6;
+}
+.intro-page .intro-text > p {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    letter-spacing: 3px;
+    margin-right: -3px;
+}
+.intro-page .intro-text > p > .lotteword {
+    color: red;
+    font-size: 24px;
+    
+}
+.intro-page .intro-text > p > .aquarium {
+    color: #04f9f9;
+    font-size: 24px;
+}
+
+/* **********second page************** */
+.info {
+    height: 1080px;
+    background: url(../images/2page_background.png) no-repeat;
+}
+.info .h2::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.info h2 {
+    float: right;
+    width: 660px;
+    padding-top: 150px;
+    margin-right: -20px;
+    font-size: 50px;
+    text-align: right;
+    letter-spacing: 20px;
+    border-bottom: 1px solid white;
+    /* background-color: yellow; */
+}
+.info .way-runtime-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.info .way-runtime-box > .way {
+    width: 620px;
+    /* background-color: violet; */
+}
+.info .way-runtime-box > .way > h3 {
+    font-size: 30px;
+}
+.info .way-runtime-box > .way > iframe {
+    width: 100%;
+    height: 340px;
+}
+.info .way-runtime-box .runtime {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: right;
+    /* background-color: yellow; */
+}
+.info .way-runtime-box .runtime > h3 {
+    font-size: 30px;
+    letter-spacing: 5px;
+    margin-right: -5px;
+}
+.info .way-runtime-box .runtime img {
+    padding-bottom: 10px;
+    width: 40px;
+    color: white;
+}
+.info .way-runtime-box .runtime p.time {
+    font-size: 30px;
+    margin-bottom: -50px;
+    /* background-color: whitesmoke; */
+}
+.info .way-runtime-box .runtime p.time-notice {
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+.info .way-runtime-box .runtime .booking-list li {
+    padding: 10px 0;
+    /* background-color: #04f9f9; */
+}
+.info .way-runtime-box .runtime .booking-list a {
+    display: block;
+    padding: 10px 0;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: white;
+    background-color: rgb(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+
+.info .treat {
+    margin-top: 97px;
+}
+.info .treat > .treat-content-box {
+    position: absolute;
+    left: -290px;
+    z-index: 50;
+    width: 830px;
+    height: 377px;
+    background-color: #163c71;
+}
+.info .treat > .treat-content-box > h3 {
+    margin-left: 310px;
+    margin-top: 100px;
+    font-size: 30px;
+    letter-spacing: 10px;
+}
+.info .treat > .treat-content-box > .treat-arrow-box .left-arrow {
+    margin-top: 30px;
+    margin-left: 300px;
+}
+.info .treat > .treat-content-box .left-arrow-first {
+    width: 3px;
+    height: 50px;
+    display: inline-block;
+    padding-top: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+.info .treat > .treat-content-box .left-arrow-second {
+    width: 3px;
+    height: 50px;
+    display: inline-block;
+    padding-top: 20px;
+    background-color: white;
+    transform: rotate(-45deg) translate(-30px, 20px);
+}
+.info .treat > .treat-content-box > .treat-arrow-box .right-arrow {
+    margin-top: -15px;
+    margin-left: 450px;
+}
+.info .treat > .treat-content-box .right-arrow-first {
+    width: 3px;
+    height: 50px;
+    display: inline-block;
+    padding-top: 20px;
+    background-color: white;
+    transform: rotate(45deg);
+}
+.info .treat > .treat-content-box .right-arrow-second {
+    width: 3px;
+    height: 50px;
+    display: inline-block;
+    padding-top: 20px;
+    background-color: white;
+    transform: rotate(-45deg) translate(20px, -30px);
+}
+.info .treat > .treat-content-box > p.treat-detail {
+    margin-left: 600px;
+    margin-top: 100px;
+}
+.info .treat > .treat-info {
+    position: relative;
+    width: 1280px;
+    height: 500px;
+    overflow: hidden;
+    /* background-color: rgb(91, 21, 94); */
+}
+.info .treat > .treat-info .treat-list {
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    top: 20px;
+    left: 300px;
+}
+.info .treat > .treat-info .treat-list li {
+    margin-right: 40px;
+    padding-top: 20px;
+    width: 290px;
+    height: 300px;
+    text-align: center;
+    background-color: rgb(0, 0, 0, 0.7);
+    color: white;
+}
+
+.info .treat > .treat-info .treat-list li a{
+    display: block;
+    /* background-color: #ffc60b; */
+}
+.info .treat > .treat-info .treat-list a img {
+    width: 150px;
+    height: 120px;
+}
+.info .treat > .treat-info .treat-list a h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.info .treat > .treat-info .treat-list a p {
+    margin: 20px;
+    text-align: justify;
+    letter-spacing: 2px;
+    /* background-color: orange; */
+}
+.info .treat > .treat-info .treat-list a .price {
+    font-size: 18px;
+    text-align: center;
+}
+
+
+/* *******************third page*************** */
+
+.event {
+    height: 1080px;
+    background: url(../images/3page_background.jpg) no-repeat;
+}
+.event h2 {
+    width: 660px;
+    padding-top: 150px;
+    margin-bottom: 44px;
+    letter-spacing: 20px;
+    font-size: 50px;
+    border-bottom: 1px solid white;
+}
+.event .event-list {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.event .event-list .eve {
+    width: 510px;
+    height: 510px;
+    margin-right: 10px;
+    background-color: rgb(250, 250, 250, 0.7);
+}
+.event .event-list .eve img {
+    width: 216px;
+    margin-top: 100px;
+    margin-left: 40px;
+    /* background-color: yellow; */
+}
+.event .event-list .eve > h3 {
+    font-size: 35px;
+    color: white;
+    letter-spacing: 5px;
+}
+.event .event-list .eve > p {
+    font-size: 16px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    color: white;
+}
+.event .event-list .program {
+    width: 510px;
+    height: 510px;
+    margin-left: 10px;
+    background-color: rgb(250, 250, 250, 0.7);
+}
+.event .event-list .program img {
+    width: 150px;
+    margin-top: 130px;
+    /* background-color: yellow; */
+}
+.event .event-list .program > h3 {
+    margin-top: 35px;
+    font-size: 35px;
+    color: white;
+}
+.event .event-list .program > p {
+    font-size: 16px;
+    margin-top: 40px;
+    letter-spacing: 2px;
+    color: white;
+}
+/* -------sns------- */
+.event .sns-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 172px;
+}
+.event .sns-box .insta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 640px;
+    height: 148px;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.event .sns-box .insta > .insta-logo {
+    width: 52px;
+    height: 52px;
+}
+.event .sns-box a {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: white;
+}
+.event .sns-box .insta > .insta-background {
+    width: 330px;
+}
+
+.event .sns-box .facebook {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 640px;
+    height: 148px;
+    background-color: rgb(0, 0, 0, 0.7);
+}
+.event .sns-box .facebook > .facebook-background {
+    width: 330px;
+    height: inherit;
+}
+.event .sns-box .facebook > .facebook-logo {
+    width: 52px;
+    height: 52px;
+}
+/* ===============================footer========================== */
+footer {
+    width: 100%;
+    height: 187px;
+    background-color: #06283d;
+}
+.lotteworld-menu .lotteworld-menu-list {
+    display: flex;
+    justify-content: space-between;
+    width: 1060px;
+    margin: 0 auto;
+}
+.lotteworld-menu .lotteworld-menu-list li {
+    flex: 212px;
+    padding: 10px 0px;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+    border-left: 1px solid white;
+    /* background-color: #04f9f9; */
+}
+.lotteworld-menu .lotteworld-menu-list li:nth-of-type(5){
+    border-right: 1px solid white;
+}
+
+/*--- footerlogo-info-security ---*/
+.footer-content-box {
+    display: flex;
+    margin-top: 30px;
+}
+.footer-content-box .footer-logo img {
+    width: 100px;
+}
+.footer-content-box > .footer-menu-box {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    font-size: 12px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+}
+.footer-content-box > .footer-menu-box > .footer-menu > ul {
+    display: flex;
+}
+.footer-content-box > .footer-menu-box > .footer-menu li > a {
+    color: white;
+    border-right: 1px solid white;
+    padding: 0 10px;
+}
+.footer-content-box > .footer-menu-box > .footer-menu li:first-child a {
+    padding-left: 0;
+}
+.footer-content-box > .footer-menu-box > .footer-menu li:last-child a {
+    border-right: 0;
+}
+.footer-content-box > .footer-menu-box p.copyright {
+    color: #aaa;
+}
+
+.security {
+    position: absolute;
+    right: 500px;
+    bottom: 5px;
+}
+.security > .security-box {
+    display: flex;
+    align-items: center;
+}
+.security > .security-box > img {
+    width: 50px;
+}
+.security > .security-box > p {
+    font-size: 12px;
+    color: #aaa;
+}
+.security > .security-box > p > a {
+    color: #aaa;
+}
+
+.employment {
+    position: absolute;
+    bottom: 30px;
+    right: 250px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 40%;
+}
+
+/* .subsidiary-site {
+    display: flex;
+    justify-content: end;
+    background-color: yellowgreen;
+} */
+
+.subsidiary-site {
+    position: absolute;
+    width: 0px;
+    transform: translate(1140px, -50px);
+    /* background-color: #04f9f9; */
+}
