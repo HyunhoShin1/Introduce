@@ -560,6 +560,9 @@ main section.skill-sec .languages .skill-icon {
     transform: rotate(30deg) translate(400px, -120px) rotate(-30deg);
   }
 }
+main section.skill-sec .languages .skill-icon:hover {
+  background-image: linear-gradient(90deg, #ffffff, #fffc65 43%, #ffff00);
+}
 main section.skill-sec .languages .skill-icon::before {
   content: "";
   width: 104%;
@@ -652,6 +655,9 @@ main section.skill-sec .tools .skill-icon {
   main section.skill-sec .tools .skill-icon:nth-child(6) {
     transform: rotate(30deg) translate(400px, -120px) rotate(-30deg);
   }
+}
+main section.skill-sec .tools .skill-icon:hover {
+  background-image: linear-gradient(90deg, #ffffff, #fffc65 43%, #ffff00);
 }
 main section.skill-sec .tools .skill-icon::before {
   content: "";

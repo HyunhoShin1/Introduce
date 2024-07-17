@@ -503,7 +503,8 @@ main {
                 
                 &:hover {
                     // transform: rotateY(360deg) rotateX(0deg);
-
+                    background-image: linear-gradient(90deg, #ffffff, #fffc65 43%, #ffff00);
+                    // background-image: linear-gradient(var(--rotate), #fffb0a, #f8f8f8 43%, #fffb0c);
                 }    
 
                 &::before {
@@ -601,6 +602,7 @@ main {
                 
                 &:hover {
                     // transform: rotateY(360deg) rotateX(0deg);
+                    background-image: linear-gradient(90deg, #ffffff, #fffc65 43%, #ffff00);
 
                 }    
 

@@ -317,4 +317,11 @@ window.onload = function () {
     window.location.href = 'https://github.com/jeonghae98/Seoul284', '_blank';
   }
   
+  document.querySelector('.aquarium-git').onclick = function () {
+    window.open('https://github.com/HyunhoShin1/aquarium', '_blank');
+  }
+
+  document.querySelector('.aquarium-page').onclick = function () {
+    window.open('http://shh5338.dothome.co.kr/aquarium/', '_blank');
+  }
 };
