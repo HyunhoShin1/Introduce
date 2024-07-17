@@ -310,4 +310,11 @@ window.onload = function () {
     const offset = -currentIndex * 100;
     wrapper.style.transform = `translateX(${offset}%)`;
   }
+
+
+  /* 버튼 사이트 이동 */
+  function seoulGit() {
+    window.location.href = 'https://github.com/jeonghae98/Seoul284', '_blank';
+  }
+  
 };
